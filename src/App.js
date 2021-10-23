@@ -1,8 +1,8 @@
-import { Table } from './Table'
+import {CustomTable } from './CustomTable'
 import './App.css'
 
 function App() {
-  return <Table />
+  return <CustomTable />
 }
 
 export default App
