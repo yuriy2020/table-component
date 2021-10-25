@@ -17,7 +17,7 @@ interface columns {}
 
 export function CustomTable(props: Parameters<typeof Table>[0]) {
   const [data, setData] = useState([])
-  const [columns, setColumns] = useState<ColumnsType>([])
+  const [columns, setColumns] = useState<ColumnsType<any>>([])
 
   const getData = async () => {
     const response = await fetch(dataApi)
@@ -125,7 +125,7 @@ export function CustomTable(props: Parameters<typeof Table>[0]) {
         setTableWidth(width)
       }}
     >
-      <Table
+      {/* <Table
         {...props}
         className='virtual-table'
         columns={mergedColumns}
@@ -133,7 +133,7 @@ export function CustomTable(props: Parameters<typeof Table>[0]) {
         components={{
           body: renderVirtualList,
         }}
-      />
+      /> */}
     </ResizeObserver>
   )
 }
