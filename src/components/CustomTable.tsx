@@ -1,13 +1,11 @@
 import React, { ReactElement, useEffect, useState, useRef, LegacyRef } from 'react'
-import { FixedSizeList } from 'react-window'
-import InfiniteLoader from 'react-window-infinite-loader'
 import { VariableSizeGrid as Grid } from 'react-window'
 import ResizeObserver from 'rc-resize-observer'
 import classNames from 'classnames'
 // import { useVT } from 'virtualedtableforantd4';
 import { ColumnsType } from 'antd/lib/table'
 import { CustomizeScrollBody } from 'rc-table/lib/interface'
-import { columnsApi, dataApi } from './api'
+import { columnsApi, dataApi } from '../api'
 import { Table } from 'antd'
 import 'antd/dist/antd.css'
 
@@ -17,7 +15,7 @@ interface columns {}
 
 // ============ 1 ВАРИАНТ С ANTD-примера  (не работает !) ======================
 
-export function CustomTable() {
+export function CustomTable(props: Parameters<typeof Table>[0]) {
   const [data, setData] = useState([])
   const [columns, setColumns] = useState<ColumnsType>([])
 
@@ -53,8 +51,8 @@ export function CustomTable() {
 
     return { ...column, width: Math.floor(tableWidth / widthColumnCount) }
   })
-  const gridRef = useRef<Grid<any>()
-  const [connectObject] = useState(() => {
+  const gridRef = useRef<any>()
+  const [connectObject] = useState<any>(() => {
     const obj = {}
     Object.defineProperty(obj, 'scrollLeft', {
       get: () => null,
@@ -91,11 +89,13 @@ export function CustomTable() {
         ref={gridRef}
         className='virtual-grid'
         columnCount={mergedColumns.length}
-        columnWidth={(index) => {
+        columnWidth={(index: number) => {
           const { width } = mergedColumns[index]
-          return totalHeight > scroll.y && index === mergedColumns.length - 1 ? width - scrollbarSize - 1 : width
+          return totalHeight > scroll.y && index === mergedColumns.length - 1
+            ? (width as number) - scrollbarSize - 1
+            : (width as number)
         }}
-        height={scroll.y}
+        height={scroll.y as number}
         rowCount={rawData.length}
         rowHeight={() => 54}
         width={tableWidth}
@@ -112,7 +112,7 @@ export function CustomTable() {
             })}
             style={style}
           >
-            {rawData[rowIndex][mergedColumns[columnIndex].dataIndex]}
+           {(rawData[rowIndex] as any)[(mergedColumns as any)[columnIndex].dataIndex]}
           </div>
         )}
       </Grid>
