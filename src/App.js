@@ -1,8 +1,9 @@
-import { CustomTable } from './components/CustomTable'
+import { ListTable } from './components/ListTable'
 import './App.css'
-import { AntdTable } from './components/AntdTable'
+import { GridTable } from './components/GridTable'
 import React, { useState, useEffect } from 'react'
 import { columnsApi, dataApi } from './api'
+import { GridTableFromExampleAntd } from './components/GridTableFromExampleAntd'
 
 function App() {
   const [columns, setColumns] = useState([])
@@ -27,8 +28,9 @@ function App() {
   }, [])
   return (
     <>
-      {/* <CustomTable /> */}
-      <AntdTable columns={columns} dataSource={data} setColumns={setColumns}/>
+      {/* <ListTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
+      {/* <GridTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
+      <GridTableFromExampleAntd columns={columns} dataSource={data} />
     </>
   )
 }

@@ -3,12 +3,12 @@ import { VariableSizeGrid as Grid } from 'react-window'
 import ResizeObserver from 'rc-resize-observer'
 import classNames from 'classnames'
 import { Table } from 'antd'
-import './AntdTable.css'
+import './GridTable.css'
 
 import { Resizable } from 'react-resizable'
 import { ColumnsType } from 'antd/lib/table'
 
-export function AntdTable(props: Parameters<typeof Table>[0]) {
+export function GridTable(props: Parameters<typeof Table>[0]) {
   // @ts-ignore
   const { columns, dataSource, setColumns, ...restProps } = props
 
@@ -128,12 +128,12 @@ export function AntdTable(props: Parameters<typeof Table>[0]) {
         // @ts-ignore
         columns={mergedColumns}
         pagination={false}
-        components={{
-          header: {
-            cell: ResizableTitle,
-          },
-          body: renderVirtualList as any, // ! as any
-        }}
+        // components={{
+        //   header: {
+        //     cell: ResizableTitle,
+        //   },
+        //   body: renderVirtualList as any, // ! as any
+        // }}
       />
     </ResizeObserver>
   )
