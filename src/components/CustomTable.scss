@@ -1,0 +1,25 @@
+.table {
+  width: 100%;
+  overflow: auto;
+}
+
+.table-body-row {
+}
+.table-head-row {
+}
+
+.table-head-cell,
+.table-body-cell {
+  padding: 4px;
+  text-align: center;
+}
+
+.table-head-cell {
+  font-weight: 700;
+  font-size: larger;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  &:first-child {
+    border-left: 1px solid #ccc;
+  }
+}

@@ -4,22 +4,31 @@ import { GridTable } from './components/GridTable'
 import React, { useState, useEffect } from 'react'
 import { columnsApi, dataApi } from './api'
 import { GridTableFromExampleAntd } from './components/GridTableFromExampleAntd'
+import CustomTable from './components/CustomTable'
 
 function App() {
   const [columns, setColumns] = useState([])
   const [data, setData] = useState([])
+
   const getData = async () => {
-    const response = await fetch(dataApi)
-    const res = await response.json()
-    setData(res)
-    // console.log(res)
+    try {
+      const response = await fetch(dataApi)
+      const res = await response.json()
+      setData(res)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const getColumns = async () => {
-    const response = await fetch(columnsApi)
-    const res = await response.json()
-    setColumns(res)
-    // console.log(res)
+    try {
+      const response = await fetch(columnsApi)
+      const res = await response.json()
+      setColumns(res)
+      // console.log(res)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -27,11 +36,12 @@ function App() {
     getData()
   }, [])
   return (
-    <>
+    <div style={{ width: '1000px', padding: 20 }}>
       {/* <ListTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
       {/* <GridTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
       <GridTableFromExampleAntd columns={columns} dataSource={data} />
-    </>
+      {/* <CustomTable columns={columns} dataSource={data} /> */}
+    </div>
   )
 }
 

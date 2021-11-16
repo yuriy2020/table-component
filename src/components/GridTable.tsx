@@ -128,12 +128,12 @@ export function GridTable(props: Parameters<typeof Table>[0]) {
         // @ts-ignore
         columns={mergedColumns}
         pagination={false}
-        // components={{
-        //   header: {
-        //     cell: ResizableTitle,
-        //   },
-        //   body: renderVirtualList as any, // ! as any
-        // }}
+        components={{
+          header: {
+            cell: ResizableTitle,
+          },
+          body: renderVirtualList as any, // ! as any
+        }}
       />
     </ResizeObserver>
   )

@@ -8,8 +8,8 @@ import { Table } from 'antd';
 export function GridTableFromExampleAntd(props) {
   const { columns } = props;
   const scroll = {
-    y: 300,
-    x: '100vw',
+    y: 500,
+    // x: '100vw',
   }
   const [tableWidth, setTableWidth] = useState(0);
   const widthColumnCount = columns.filter(({ width }) => !width).length;
@@ -91,12 +91,13 @@ export function GridTableFromExampleAntd(props) {
     >
       <Table
         {...props}
-        className="virtual-table"
+        // className="virtual-table"
         columns={mergedColumns}
         pagination={false}
         components={{
           body: renderVirtualList,
         }}
+        scroll={scroll}
       />
     </ResizeObserver>
   );
