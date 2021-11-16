@@ -36,11 +36,11 @@ function App() {
     getData()
   }, [])
   return (
-    <div style={{ width: '1000px', padding: 20 }}>
+    <div style={{padding: 20 }}>
       {/* <ListTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
       {/* <GridTable columns={columns} dataSource={data} setColumns={setColumns}/> */}
-      <GridTableFromExampleAntd columns={columns} dataSource={data} />
-      {/* <CustomTable columns={columns} dataSource={data} /> */}
+      {/* <GridTableFromExampleAntd columns={columns} dataSource={data}  scroll={{y:500, x: '100vw'}}/> */}
+      <CustomTable columns={columns} dataSource={data} />
     </div>
   )
 }
