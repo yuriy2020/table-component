@@ -1,6 +1,7 @@
 ## Создание компонента таблица
 
-/sever : npm start
+ /sever  ==> cd server /  npm start
+ client ==> npm start
 
 ### Нужно реализовать :
 

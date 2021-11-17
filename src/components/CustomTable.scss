@@ -1,12 +1,15 @@
-
-
 .table {
   width: 100%;
 }
 
 .table-body-row {
 }
+
+.table-head {
+  width: '100%';
+}
 .table-head-row {
+  display: flex;
 }
 
 .table-head-cell,
